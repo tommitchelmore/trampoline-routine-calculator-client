@@ -80,6 +80,14 @@ function Layout (props) {
                   {title}
                 </Button>
               ))}
+              {(user?.role === 'contributor' || user?.role === 'admin') && <Button
+                onClick={handleCloseNavMenu}
+                to='/contributor'
+                component={RouterLink}
+                sx={{ my: 2, color: 'white', display: 'block' }}
+              >
+                Contributor
+              </Button>}
             </Box>
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
               <IconButton
@@ -117,6 +125,11 @@ function Layout (props) {
                     </Link>
                   </MenuItem>
                 ))}
+                {user?.role === 'admin' && <MenuItem onClick={handleCloseNavMenu}>
+                  <Link to='/admin' component={RouterLink} underline='none' color='white'>
+                    Admin
+                  </Link>
+                </MenuItem>}
               </Menu>
             </Box>
             <Box sx={{ flexGrow: 0 }}>

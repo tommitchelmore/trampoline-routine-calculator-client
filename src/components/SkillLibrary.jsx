@@ -29,7 +29,7 @@ function SkillLibrary(props) {
 
   useEffect(() => {
     getSkills()
-  }, [])
+  }, [props.updateTrigger])
 
   useEffect(() => {
     const fuse = new Fuse(initSkills, {
