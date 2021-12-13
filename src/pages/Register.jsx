@@ -8,12 +8,10 @@ import { useUser } from '../store';
 function Register(props) {
 
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const setUser = useUser(state => state.login)
   const navigate = useNavigate()
   const [loginError, setLoginError] = useState(null)
 
   const onSubmit = (data) => {
-    console.log(data)
     fetch('/api/register', {
       method: 'POST',
       headers: {
@@ -22,10 +20,7 @@ function Register(props) {
       body: JSON.stringify(data)
     })
     .then(res => {
-      if (res.status !== 200) return setLoginError("Email already in use")
-      res.json()
-    })
-    .then(res => {
+      if (res.status !== 200 || !res) return setLoginError("Email already in use")
       return navigate('/confirm-email')
     })
   }

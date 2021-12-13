@@ -13,7 +13,6 @@ function Login(props) {
   const [loginError, setLoginError] = useState(null)
 
   const onSubmit = (data) => {
-    console.log(data)
     fetch('/api/signin', {
       method: 'POST',
       headers: {

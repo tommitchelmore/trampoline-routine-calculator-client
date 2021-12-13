@@ -1,4 +1,4 @@
-import { Avatar, Container, TextField, Typography, Box, Stack, Button, Grid, Link } from '@mui/material';
+import { Avatar, Container, TextField, Typography, Box, Stack, Button } from '@mui/material';
 import LockIcon from '@mui/icons-material/LockOutlined'
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -13,7 +13,6 @@ function ConfirmEmail(props) {
   const [codeError, setCodeError] = useState(null)
 
   const onSubmit = (data) => {
-    console.log(data)
     fetch('/api/confirm', {
       method: 'POST',
       headers: {
@@ -24,7 +23,6 @@ function ConfirmEmail(props) {
     .then(res => res.json())
     .then(res => {
       if (!res.user) return setCodeError(res.message)
-      console.log(res.user)
       setUser(res.user)
       return navigate('/')
     })

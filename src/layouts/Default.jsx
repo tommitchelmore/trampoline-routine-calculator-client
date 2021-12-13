@@ -1,4 +1,4 @@
-import { AppBar, IconButton, Toolbar, Box, Tooltip, Avatar, Menu, MenuItem, Typography, Container, Button, Slide, useScrollTrigger, Link, Stack, Grid } from '@mui/material';
+import { AppBar, IconButton, Toolbar, Box, Tooltip, Menu, MenuItem, Typography, Container, Button, Link, Stack, Grid } from '@mui/material';
 import { Link as RouterLink } from 'react-router-dom';
 import MenuIcon from '@mui/icons-material/Menu';
 import Profile from '@mui/icons-material/AccountCircle';
@@ -46,22 +46,6 @@ function Layout (props) {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
-
-  function HideOnScroll(props) {
-    const { children, window } = props;
-    // Note that you normally won't need to set the window ref as useScrollTrigger
-    // will default to window.
-    // This is only being set here because the demo is in an iframe.
-    const trigger = useScrollTrigger({
-      target: window ? window() : undefined,
-    });
-  
-    return (
-      <Slide appear={false} direction="down" in={!trigger}>
-        {children}
-      </Slide>
-    );
-  }
 
   return (
     <div>
