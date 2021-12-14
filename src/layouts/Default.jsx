@@ -109,9 +109,9 @@ function Layout (props) {
                     </Link>
                   </MenuItem>
                 ))}
-                {user?.role === 'admin' && <MenuItem onClick={handleCloseNavMenu}>
-                  <Link to='/admin' component={RouterLink} underline='none' color='white'>
-                    Admin
+                {user?.role === 'contributor' && <MenuItem onClick={handleCloseNavMenu}>
+                  <Link to='/contributor' component={RouterLink} underline='none' color='white'>
+                    Contributor
                   </Link>
                 </MenuItem>}
               </Menu>
